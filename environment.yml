@@ -1,0 +1,35 @@
+name: assignment-7-swe4s
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bzip2
+  - ca-certificates
+  - libblas
+  - libcblas
+  - libcxx
+  - libffi
+  - libgfortran
+  - libgfortran5
+  - liblapack
+  - libopenblas
+  - libsqlite
+  - libzlib
+  - llvm-openmp
+  - ncurses
+  - numpy
+  - openssl
+  - pandas
+  - pip
+  - python
+  - python-dateutil
+  - python_abi
+  - pytz
+  - readline
+  - setuptools
+  - six
+  - tk
+  - tzdata
+  - wheel
+  - xz
+  - matplotlib
