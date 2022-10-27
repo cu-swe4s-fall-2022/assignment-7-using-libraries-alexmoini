@@ -1,4 +1,3 @@
-from this import d
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -20,6 +19,9 @@ def make_box_plot(dataframe, column_names, y_label, title):
     Parameters: dataframe, column_names, y_label, title
     Returns: 0
     """
+    # remove last column
+    dataframe = dataframe[column_names[0:3]]
+    column_names, species = column_names[0:3], column_names[4]
     plt.boxplot(dataframe[column_names],labels=column_names)
     plt.ylabel(y_label)
     plt.title(title)
@@ -59,11 +61,11 @@ def make_multi_panel_figure(suptitle, dataframe, column_names,
     # dont include header in df
     for species_name in set(dataframe[title_scatter]):
         iris_subset = dataframe[dataframe[title_scatter] == species_name]
-        axes[0,0].scatter(iris_subset[x_labels[0]], iris_subset[y_labels[0]],
+        axes[0].scatter(iris_subset[x_labels[0]], iris_subset[y_labels[0]],
                     label=species_name, s=5)
-    plt.boxplot(dataframe[column_names],labels=column_names)
-    plt.ylabel(y_labels[1])
-    plt.title(title_box)
+    dataframe = dataframe[column_names[0:3]]
+    column_names, species = column_names[0:3], column_names[4]
+    axes[1].boxplot(dataframe[column_names],labels=column_names)
     plt.show()
     plt.savefig('make_multi_panel_figure.png')
     return 0
